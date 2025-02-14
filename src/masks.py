@@ -1,22 +1,23 @@
-def get_mask_card_number(number: str) -> str:
-    """Функция принимает на вход номер карты и возвращает ее маску, номер карты замаскирован."""
-    card_number = ""
-    for i in range(len(number)):
-        if number[i].isalpha() or number[i] == " ":
-            pass
-        else:
-            card_number += number[i]
-
-    correct_number = card_number[0:7] + card_number[7:14] + card_number[14:19]
-    number_mask = correct_number[0:4] + " " + correct_number[4:6] + "**" + " " + "****" + " " + correct_number[12:16]
-    return number_mask
+def mask_card_number(card_number: str) -> str:
+    """Возвращает маску номера карты."""
+    cleaned_number = "".join(char for char in card_number if char.isdigit())
+    masked_number = "{} {}** **** {}".format(cleaned_number[:4], cleaned_number[6:8], cleaned_number[-4:])
+    return masked_number
 
 
-def get_mask_account(number: str) -> str:
-    """Функция принимает на вход номер счета и возвращает его маску, номер счета замаскирован."""
-    number_mask = "**" + number[-4:]
-    return number_mask
+def mask_account_number(account_number: str) -> str:
+    """Возвращает маску номера счета."""
+    masked_account = "**{}".format(account_number[-4:])
+    return masked_account
 
 
-n = input()
-print(get_mask_card_number(n))
+def main():
+    n = input("Введите номер карты или номер счета: ")
+    masked_card = mask_card_number(n)
+    masked_account = mask_account_number(n[-10:])
+
+    print("Маскированный номер карты:", masked_card)
+
+
+if __name__ == "__main__":
+    main()
