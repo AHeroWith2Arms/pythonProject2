@@ -11,10 +11,9 @@ def mask_account_number(account_number: str) -> str:
     return masked_account
 
 
-def main():
+def main() -> None:
     n = input("Введите номер карты или номер счета: ")
     masked_card = mask_card_number(n)
-    masked_account = mask_account_number(n[-10:])
 
     print("Маскированный номер карты:", masked_card)
 

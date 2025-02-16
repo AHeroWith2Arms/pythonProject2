@@ -24,12 +24,14 @@ def mask_card_and_account_info(info: str) -> str:
 
         return number_mask
 
+
 def format_date(input_date: str) -> str:
     """
     Преобразует дату из формата YYYY-MM-DD в формат DD.MM.YYYY.
     """
     correct_date = f"{input_date[8:10]}.{input_date[5:7]}.{input_date[0:4]}"
     return correct_date
+
 
 user_input = input("Введите информацию о карте или счете: ")
 print(mask_card_and_account_info(user_input))

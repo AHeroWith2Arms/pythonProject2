@@ -1,14 +1,17 @@
 from datetime import datetime
 from typing import List
 
+
 def filter_by_state(list_of_dicts: List[dict], state: str = "EXECUTED") -> List[dict]:
     """Фильтрует список словарей по ключу 'state'."""
     return [item for item in list_of_dicts if item.get("state") == state]
+
 
 def sort_by_date(list_of_dicts: List[dict], order: str = "descending") -> List[dict]:
     """Сортирует список словарей по ключу 'date'."""
     reverse = order.lower() == "descending"
     return sorted(list_of_dicts, key=lambda x: datetime.fromisoformat(x["date"]), reverse=reverse)
+
 
 # Пример использования
 if __name__ == "__main__":
