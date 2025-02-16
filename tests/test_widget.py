@@ -1,4 +1,4 @@
-from src.widget import mask_card_and_account_info, format_date
+from src.widget import format_date, mask_card_and_account_info
 
 """
 тестирование функции mask_card_and_account_info

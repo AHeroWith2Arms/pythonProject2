@@ -1,5 +1,4 @@
-from src.proccesing import filter_by_state
-from src.proccesing import sort_by_date
+from src.proccesing import filter_by_state, sort_by_date
 
 # данные для теста
 test_data: list[dict] = [
